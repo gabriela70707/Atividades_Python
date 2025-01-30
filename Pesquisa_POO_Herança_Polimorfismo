@@ -1,0 +1,65 @@
+"""
+Crie uma classe base chamada Veiculo:
+
+Atributos: marca e modelo
+
+Método: descricao que retorna uma string com a marca e o modelo
+
+Crie duas subclasses Carro e Moto que herdam de Veiculo:
+
+Ambas devem ter um método descricao que sobrepõe o método da classe base
+
+Adicione um atributo rodas para cada classe (4 para Carro e 2 para Moto)
+
+No método descricao, inclua a quantidade de rodas na descrição
+
+Crie instâncias das classes e teste os métodos.
+
+"""
+
+class Veiculo:
+    def __init__(self, marca:str, modelo:str):
+        self.marca = marca
+        self.modelo = modelo
+
+    def descricao(self):
+        return (f"a marca do veiculo é {self.marca} e o modelo {self.modelo}")
+
+
+class Carros(Veiculo):
+    def __init__(self, marca, modelo):
+        super().__init__(marca, modelo)
+        self.rodas = 4
+    
+    def descricao(self):  #Polimorfismo
+        return (f"a marca do carro é {self.marca} o modelo é {self.modelo} e tem {self.rodas} rodas")
+    
+class Motos(Veiculo):
+    def __init__(self, marca, modelo):
+        super().__init__(marca, modelo)
+        self.rodas = 2
+
+    def descricao(self): # Polimorfismo 
+        return (f"a marca da moto é {self.marca} o modelo é {self.modelo} e tem {self.rodas} rodas")
+
+
+carro = Carros("renault", "kwid")
+moto = Motos("toyota", "Yaris")
+
+print(carro.descricao())
+print(moto.descricao())
+
+"""
+Aprendizados: (Aqui inclue a pesquisa de Herança e Polimorfismo)
+
+Herança: É quando uma classe herda atributos e métodos de outra classe. 
+Isso permite a reutilização de código e a criação de hierarquias de classes.
+
+Polimorfismo: É quando você sobrescreve uma função herdada para servir a um objetivo específico. 
+Ele permite que diferentes classes usem a mesma interface de maneira única.
+
+Usar return em vez de print: Usar return é melhor dentro de uma função porque permite usar o resultado mais tarde, 
+ao invés de apenas exibir o resultado diretamente quando a função é chamada. 
+Isso oferece mais flexibilidade e reutilização do valor retornado.
+
+"""
